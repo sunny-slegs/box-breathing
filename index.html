@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Box-Breathing Animation</title>
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+  </head>
+  <body>
+    <div id="inner-element"></div>
+    <script>
+      function play() {
+        console.log("play");
+        const duration = 1000;
+        window.requestAnimationFrame(function() {
+          const elem = document.querySelector("#inner-element");
+          elem.className = "animate";
+        });
+        window.setTimeout(function() {
+          window.requestAnimationFrame(function() {
+            const element = document.querySelector("#inner-element");
+            element.className = "stop-animate";
+          });
+          play();
+        }, duration);
+      }
+      play();
+    </script>
+  </body>
+</html>

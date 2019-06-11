@@ -1,0 +1,26 @@
+#inner-element {
+  background-color: aquamarine;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.animate {
+  animation-duration: 1s;
+  animation-name: expand;
+}
+
+.stop-animate {
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes expand {
+  from {
+    width: 50px;
+  }
+
+  to {
+    width: 150px;
+  }
+}
