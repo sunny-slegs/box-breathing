@@ -9,22 +9,28 @@
   <body>
     <div id="inner-element"></div>
     <script>
-      function play() {
-        console.log("play");
-        const duration = 1000;
-        window.requestAnimationFrame(function() {
-          const elem = document.querySelector("#inner-element");
-          elem.className = "animate";
-        });
-        window.setTimeout(function() {
-          window.requestAnimationFrame(function() {
-            const element = document.querySelector("#inner-element");
-            element.className = "stop-animate";
-          });
-          play();
-        }, duration);
-      }
-      play();
+     function expand(){
+       console.log("expand")
+       window.requestAnimationFrame(function() {
+         window.requestAnimationFrame(function() {
+           document.querySelector("#inner-element").className = "animate";
+         });
+       });
+       window.setTimeout(contract, 1000);
+     };
+
+     function contract(){
+       console.log("contract")
+       window.requestAnimationFrame(function() {
+         window.requestAnimationFrame(function() {
+           document.querySelector("#inner-element").className = "stop-animate";           
+         });
+       });
+       window.setTimeout(expand, 1000);
+     };
+
+     expand();
+     
     </script>
   </body>
 </html>
